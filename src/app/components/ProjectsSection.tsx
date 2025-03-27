@@ -199,140 +199,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
     },
   ];
 
-  // Education section styles
-  const educationContainer: React.CSSProperties = {
-    maxWidth: "1200px",
-    margin: "60px auto 0",
-  };
-
-  const educationCard: React.CSSProperties = {
-    padding: "32px",
-    borderRadius: "16px",
-    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
-    border: "1px solid rgba(0, 0, 0, 0.1)",
-    background: "#ffffff",
-    marginBottom: "32px",
-  };
-
-  const educationTitle: React.CSSProperties = {
-    fontSize: "2rem",
-    fontWeight: "bold",
-    marginBottom: "32px",
-    textAlign: "center",
-  };
-
-  const schoolName: React.CSSProperties = {
-    fontSize: "1.5rem",
-    color: "#00B5B5",
-    marginBottom: "8px",
-  };
-
-  const degree: React.CSSProperties = {
-    fontSize: "1.2rem",
-    fontWeight: "500",
-    marginBottom: "8px",
-  };
-
-  const details: React.CSSProperties = {
-    color: "#666",
-    marginBottom: "16px",
-  };
-
-  const awardsTitle: React.CSSProperties = {
-    fontSize: "1.1rem",
-    fontWeight: "500",
-    marginTop: "16px",
-    marginBottom: "8px",
-  };
-
-  const certificationGrid: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-    gap: "24px",
-  };
-
-  const certCard: React.CSSProperties = {
-    padding: "24px",
-    borderRadius: "12px",
-    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
-    border: "1px solid rgba(0, 0, 0, 0.1)",
-    background: "#ffffff",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-  };
-
-  const certTitle: React.CSSProperties = {
-    fontSize: "1.2rem",
-    color: "#00B5B5",
-    marginBottom: "8px",
-  };
-
   return (
-    <section ref={projectsRef} style={{ ...sectionStyles, ...animatedSectionStyles(isProjectsVisible) }}>
+    <section id="projects" ref={projectsRef} style={{ ...sectionStyles, ...animatedSectionStyles(isProjectsVisible) }}>
       <h2 style={sectionTitle}>Projects</h2>
+      <div style={{ textAlign: 'center', color: '#E0E0E0', fontSize: '1.2rem', marginBottom: '32px' }}>
+        This section is currently under construction. Check back soon!
+      </div>
       <div style={projectsGrid}>
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
-      </div>
-
-      {/* Education Section */}
-      <div style={educationContainer}>
-        <h2 style={educationTitle}>Education</h2>
-        <div style={educationCard}>
-          <h3 style={schoolName}>Cleveland State University</h3>
-          <p style={degree}>Bachelor of Science, Computer Science</p>
-          <p style={details}>Aug 2020 - May 2023 • GPA: 3.63</p>
-          <p style={awardsTitle}>Awards & Societies:</p>
-          <p style={details}>
-            3x President's Award, 3x Choose Ohio First + STEM Fellows Member, 2x National Society of Leadership and Success
-          </p>
-        </div>
-      </div>
-
-      {/* Certifications Section */}
-      <div style={educationContainer}>
-        <h2 style={educationTitle}>Certifications</h2>
-        <div style={certificationGrid}>
-          <div 
-            style={certCard}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(-5px)";
-              target.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.12)";
-            }}
-            onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(0)";
-              target.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.08)";
-            }}
-          >
-            <h3 style={certTitle}>Microsoft Azure</h3>
-            <ul style={{paddingLeft: "20px"}}>
-              <li style={{marginBottom: "8px"}}>Azure Fundamentals (AZ900)</li>
-              <li style={{marginBottom: "8px"}}>Data Fundamentals (DP900)</li>
-            </ul>
-          </div>
-
-          <div 
-            style={certCard}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(-5px)";
-              target.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.12)";
-            }}
-            onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(0)";
-              target.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.08)";
-            }}
-          >
-            <h3 style={certTitle}>Other</h3>
-            <ul style={{paddingLeft: "20px"}}>
-              <li style={{marginBottom: "8px"}}>LambdaTest - Test Automation</li>
-              <li style={{marginBottom: "8px"}}>AI Fundamentals (AI900)</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
   );

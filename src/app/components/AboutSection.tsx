@@ -5,7 +5,7 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
   padding: "80px 24px",
-  background: "#232129",
+  background: "#18171C",
   color: "#ffffff",
   margin: 0,
 };
@@ -51,19 +51,26 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
+const aboutText: React.CSSProperties = {
+  fontSize: "1.1rem",
+  lineHeight: "1.8",
+  color: "#B4B4B4",
+  marginBottom: "24px",
+};
+
 interface AboutSectionProps {}
 
 const AboutSection: React.FC<AboutSectionProps> = () => {
   const [aboutRef, isAboutVisible] = useIntersectionObserver();
 
   return (
-    <section ref={aboutRef} style={{ ...sectionStyles, ...animatedSectionStyles(isAboutVisible) }}>
+    <section id="about" ref={aboutRef} style={{ ...sectionStyles, ...animatedSectionStyles(isAboutVisible) }}>
       <h2 style={sectionTitle}>About Me</h2>
       <div style={aboutContentStyles}>
         <img src="/images/irlpfp.jpg" alt="Ted Chait" style={aboutImageStyles} />
         <div style={textColumn}>
           <p>
-            Hi, I'm Ted Chait, a <span style={bioHighlight}>Full Stack Software Engineer</span> passionate about creating clean enterprise level solutions. My journey began at <span style={bioHighlight}>Cleveland State University</span>, where I earned my <span style={bioHighlight}>Bachelor's in Computer Science</span> with a GPA of 3.63.
+            Hi, I'm Ted Chait, a <span style={bioHighlight}>Full Stack Software Engineer</span> passionate about creating clean enterprise level solutions. My journey began at <span style={bioHighlight}>Cleveland State University</span>, where I earned my <span style={bioHighlight}>Bachelor's in Computer Science</span>.
           </p>
           <p>
             Currently, I'm working at <span style={bioHighlight}>MRI Software</span> where I'm modernizing a Windows database maintenance tool, bringing functionality to the web using <span style={bioHighlight}>Angular</span>, <span style={bioHighlight}>TypeScript</span>, <span style={bioHighlight}>.NET</span>, <span style={bioHighlight}>C#</span>, and <span style={bioHighlight}>SQL Server</span>.

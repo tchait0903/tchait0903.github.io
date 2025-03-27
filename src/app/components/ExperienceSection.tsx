@@ -5,7 +5,8 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
   padding: "80px 24px",
-  background: "#ffffff",
+  background: "#18171C",
+  color: "#ffffff",
   margin: 0,
 };
 
@@ -24,12 +25,12 @@ const experienceTimeline: React.CSSProperties = {
 };
 
 const timelineItem: React.CSSProperties = {
-  padding: "32px",
-  background: "#ffffff",
+  padding: "24px",
+  background: "#232129",
   borderRadius: "16px",
   marginBottom: "32px",
-  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-  border: "1px solid rgba(0, 0, 0, 0.1)",
+  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+  border: "1px solid rgba(255, 255, 255, 0.1)",
 };
 
 const listStyles: React.CSSProperties = {
@@ -39,10 +40,11 @@ const listStyles: React.CSSProperties = {
 };
 
 const listItemStyles: React.CSSProperties = {
-  marginBottom: "12px",
+  marginBottom: "8px",
   paddingLeft: "24px",
   position: "relative",
-  lineHeight: "1.6",
+  lineHeight: "1.4",
+  color: "#E0E0E0",
 };
 
 const bulletPointStyles: React.CSSProperties = {
@@ -50,9 +52,9 @@ const bulletPointStyles: React.CSSProperties = {
   position: "absolute",
   left: "0",
   top: "0.7em",
-  width: "8px",
-  height: "8px",
-  backgroundColor: "#232129",
+  width: "6px",
+  height: "6px",
+  backgroundColor: "#00B5B5",
   borderRadius: "50%",
   transform: "translateY(-50%)",
 };
@@ -74,12 +76,12 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
   const [experienceRef, isExperienceVisible] = useIntersectionObserver();
 
   return (
-    <section ref={experienceRef} style={{ ...sectionStyles, ...animatedSectionStyles(isExperienceVisible) }}>
+    <section id="experience" ref={experienceRef} style={{ ...sectionStyles, ...animatedSectionStyles(isExperienceVisible) }}>
       <h2 style={sectionTitle}>Experience</h2>
       <div style={experienceTimeline}>
         <div style={timelineItem}>
-          <h3 style={{ color: "#00B5B5", marginBottom: "16px" }}>Software Engineer I</h3>
-          <p style={{ color: "#666", marginBottom: "8px" }}>MRI Software • Solon, OH • Oct 2023 - Present</p>
+          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Software Engineer I</h3>
+          <p style={{ color: "#CCCCCC", marginBottom: "24px" }}>MRI Software • Solon, OH • Oct 2023 - Present</p>
           <ul style={listStyles}>
             <li style={listItemStyles}>
               <div style={bulletPointStyles} />
@@ -109,8 +111,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
         </div>
 
         <div style={timelineItem}>
-          <h3 style={{ color: "#00B5B5", marginBottom: "16px" }}>Product Development Intern</h3>
-          <p style={{ color: "#666", marginBottom: "8px" }}>MRI Software • Solon, OH • May 2023 - Aug 2023</p>
+          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Product Development Intern</h3>
+          <p style={{ color: "#CCCCCC", marginBottom: "24px" }}>MRI Software • Solon, OH • May 2023 - Aug 2023</p>
           <ul style={listStyles}>
             <li style={listItemStyles}>
               <div style={bulletPointStyles} />
@@ -148,8 +150,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
         </div>
 
         <div style={timelineItem}>
-          <h3 style={{ color: "#00B5B5", marginBottom: "16px" }}>Maintenance and Enhancement of GCP's ExploreIT.info</h3>
-          <p style={{ color: "#666", marginBottom: "8px" }}>Cleveland State University • Cleveland, OH • Fall 2022 - Spring 2023</p>
+          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Maintenance and Enhancement of GCP's ExploreIT.info</h3>
+          <p style={{ color: "#CCCCCC", marginBottom: "24px" }}>Cleveland State University • Cleveland, OH • Fall 2022 - Spring 2023</p>
           <ul style={listStyles}>
             <li style={listItemStyles}>
               <div style={bulletPointStyles} />

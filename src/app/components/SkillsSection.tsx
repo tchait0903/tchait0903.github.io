@@ -5,8 +5,9 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
   padding: "80px 24px",
-  background: "#ffffff",
+  background: "#232129",
   margin: 0,
+  color: "#ffffff",
 };
 
 const darkSectionStyles: React.CSSProperties = {
@@ -23,26 +24,26 @@ const sectionTitle: React.CSSProperties = {
 
 const skillsGrid: React.CSSProperties = {
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 400px))",
   gap: "32px",
   maxWidth: "1200px",
   margin: "0 auto",
+  justifyContent: "center",
+  padding: "0 16px",
 };
 
 const skillCard: React.CSSProperties = {
-  padding: "32px",
+  padding: "24px",
   borderRadius: "16px",
-  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
-  border: "1px solid rgba(0, 0, 0, 0.1)",
-  background: "#ffffff",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
+  border: "1px solid rgba(255, 255, 255, 0.1)",
+  background: "#2d2b35",
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  color: "#E0E0E0",
 };
 
 const skillCardDark: React.CSSProperties = {
   ...skillCard,
-  background: "#2d2b35",
-  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
 };
 
 const listStyles: React.CSSProperties = {
@@ -52,10 +53,10 @@ const listStyles: React.CSSProperties = {
 };
 
 const listItemStyles: React.CSSProperties = {
-  marginBottom: "12px",
+  marginBottom: "8px",
   paddingLeft: "24px",
   position: "relative",
-  lineHeight: "1.6",
+  lineHeight: "1.4",
 };
 
 const bulletPointStyles: React.CSSProperties = {
@@ -87,7 +88,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = () => {
   const [skillsRef, isSkillsVisible] = useIntersectionObserver();
 
   return (
-    <section ref={skillsRef} style={{ ...sectionStyles, ...darkSectionStyles, ...animatedSectionStyles(isSkillsVisible) }}>
+    <section id="skills" ref={skillsRef} style={{ ...sectionStyles, ...darkSectionStyles, ...animatedSectionStyles(isSkillsVisible) }}>
       <h2 style={sectionTitle}>Skills</h2>
       <div style={skillsGrid}>
         <div 
@@ -103,33 +104,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = () => {
             target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
           }}
         >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "#00B5B5" }}>Operating Systems</h3>
-          <ul style={listStyles}>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Windows
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Linux
-            </li>
-          </ul>
-        </div>
-
-        <div 
-          style={skillCardDark}
-          onMouseOver={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(-8px)";
-            target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseOut={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(0)";
-            target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "#00B5B5" }}>Frontend</h3>
+          <h3 style={{ fontSize: "1.5rem", marginBottom: "16px", color: "#00B5B5" }}>Frontend</h3>
           <ul style={listStyles}>
             <li style={listItemStyles}>
               <div style={bulletPointDarkStyles} />
@@ -171,7 +146,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = () => {
             target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
           }}
         >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "#00B5B5" }}>Backend</h3>
+          <h3 style={{ fontSize: "1.5rem", marginBottom: "16px", color: "#00B5B5" }}>Backend</h3>
           <ul style={listStyles}>
             <li style={listItemStyles}>
               <div style={bulletPointDarkStyles} />
@@ -208,168 +183,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = () => {
             <li style={listItemStyles}>
               <div style={bulletPointDarkStyles} />
               C
-            </li>
-          </ul>
-        </div>
-
-        <div 
-          style={skillCardDark}
-          onMouseOver={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(-8px)";
-            target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseOut={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(0)";
-            target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "#00B5B5" }}>Other Tools & Technologies</h3>
-          <ul style={listStyles}>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Visual Studio
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              VSCode
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Agile
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              SDLC
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Scrum
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              GitHub
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Azure
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Git
-            </li>
-          </ul>
-        </div>
-
-        <div 
-          style={skillCardDark}
-          onMouseOver={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(-8px)";
-            target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseOut={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(0)";
-            target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "#00B5B5" }}>More Tools</h3>
-          <ul style={listStyles}>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Postman
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Microsoft Office Suite
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              IntelliJ IDEs
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Jira
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              TFS
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Playwright
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Swagger
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Jenkins
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Gherkin
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Confluence
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Kanban
-            </li>
-          </ul>
-        </div>
-
-        <div 
-          style={skillCardDark}
-          onMouseOver={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(-8px)";
-            target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseOut={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(0)";
-            target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "24px", color: "#00B5B5" }}>Soft Skills</h3>
-          <ul style={listStyles}>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Communicative
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Problem-solving
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Time-managing
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Collaborative
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Adaptable
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Curious
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Accountable
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Client-focused
             </li>
           </ul>
         </div>
