@@ -158,25 +158,30 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
 
     try {
-      // This is where you'd normally send the form data to a server
-      // For demonstration, we'll simulate a successful submission after a delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      setFormStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Reset form status after 5 seconds
-      setTimeout(() => setFormStatus('idle'), 5000);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setFormStatus('error');
+      }
     } catch (error) {
+      console.error('Error sending message:', error);
       setFormStatus('error');
-      
-      // Reset form status after 5 seconds
-      setTimeout(() => setFormStatus('idle'), 5000);
     }
   };
 
