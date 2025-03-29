@@ -34,9 +34,7 @@ const footerLinkStyles: React.CSSProperties = {
   alignItems: "center",
 };
 
-interface FooterProps {}
-
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC = () => {
   const { scrollToSection } = useScrollNavigation();
   
   return (

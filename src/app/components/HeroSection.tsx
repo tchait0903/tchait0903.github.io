@@ -100,9 +100,7 @@ const scrollArrowStyles: React.CSSProperties = {
   animation: 'scrollIndicator 2s infinite',
 };
 
-interface HeroSectionProps {}
-
-const HeroSection: React.FC<HeroSectionProps> = () => {
+const HeroSection: React.FC = () => {
   const handleScrollClick = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -116,7 +114,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <h1 style={nameStyles}>Ted Chait</h1>
         <h2 style={subtitleStyles}>Software Engineer</h2>
         <p style={descriptionStyles}>
-          I'm a passionate software engineer with experience in full-stack development, specializing in creating intuitive, responsive, and accessible web applications.
+          I&apos;m a passionate software engineer with experience in full-stack development, specializing in creating intuitive, responsive, and accessible web applications.
         </p>
         <div style={buttonContainerStyles}>
           <a
@@ -202,7 +200,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <span style={scrollTextStyles}>Scroll Down</span>
         <div style={scrollArrowStyles}></div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes scrollIndicator {
           0% {
             opacity: 0;

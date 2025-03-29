@@ -139,9 +139,7 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
-interface ContactSectionProps {}
-
-const ContactSection: React.FC<ContactSectionProps> = () => {
+const ContactSection: React.FC = () => {
   const [contactRef, isContactVisible] = useIntersectionObserver();
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
@@ -323,7 +321,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
           </button>
           {formStatus === 'success' && (
             <div style={successMessage}>
-              Thank you for your message! I'll get back to you soon.
+              Thank you for your message! I&apos;ll get back to you soon.
             </div>
           )}
           {formStatus === 'error' && (

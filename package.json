@@ -12,17 +12,23 @@
     "@types/nodemailer": "^6.4.17",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "next": "^15.2.3",
     "nodemailer": "^6.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@next/eslint-plugin-next": "^15.2.4",
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.2.3",
-    "typescript": "^5.8.2"
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
   }
 }

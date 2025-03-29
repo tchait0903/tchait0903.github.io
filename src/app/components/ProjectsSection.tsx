@@ -40,12 +40,14 @@ const projectImageContainer: React.CSSProperties = {
   overflow: "hidden",
 };
 
+/*
 const projectImage: React.CSSProperties = {
   width: "100%",
   height: "100%",
   objectFit: "cover",
   transition: "transform 0.5s ease",
 };
+*/
 
 const projectContent: React.CSSProperties = {
   padding: "24px",
@@ -111,7 +113,7 @@ interface ProjectCardProps {
   repoLink?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, techStack: technologies, liveLink, repoLink }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, /*image,*/ techStack: technologies, liveLink, repoLink }) => {
   return (
     <div 
       style={projectCard}
@@ -137,7 +139,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, te
       }}
     >
       <div style={projectImageContainer}>
-        <img src={image} alt={title} style={projectImage} />
+        {/* <img src={image} alt={title} style={projectImage} /> */}
       </div>
       <div style={projectContent}>
         <h3 style={projectTitle}>{title}</h3>
@@ -170,9 +172,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, te
   );
 };
 
-interface ProjectsSectionProps {}
-
-const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
+const ProjectsSection: React.FC = () => {
   const [projectsRef, isProjectsVisible] = useIntersectionObserver();
 
   const projects: ProjectCardProps[] = [

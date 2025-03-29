@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import React from 'react';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
@@ -15,19 +15,9 @@ const pageStyles: React.CSSProperties = {
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
   width: "100%",
   overflow: "hidden",
-  margin: 0,
-  padding: 0,
 };
 
 export default function Home() {
-  useEffect(() => {
-    // Apply global styles
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.documentElement.style.margin = '0';
-    document.documentElement.style.padding = '0';
-  }, []);
-
   return (
     <main style={{ ...pageStyles, margin: 0, padding: 0 }}>
       <HeroSection />

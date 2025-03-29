@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
@@ -51,35 +52,26 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
-const aboutText: React.CSSProperties = {
-  fontSize: "1.1rem",
-  lineHeight: "1.8",
-  color: "#B4B4B4",
-  marginBottom: "24px",
-};
-
-interface AboutSectionProps {}
-
-const AboutSection: React.FC<AboutSectionProps> = () => {
+const AboutSection: React.FC = () => {
   const [aboutRef, isAboutVisible] = useIntersectionObserver();
 
   return (
     <section id="about" ref={aboutRef} style={{ ...sectionStyles, ...animatedSectionStyles(isAboutVisible) }}>
       <h2 style={sectionTitle}>About Me</h2>
       <div style={aboutContentStyles}>
-        <img src="/images/irlpfp.jpg" alt="Ted Chait" style={aboutImageStyles} />
+        <Image src="/images/irlpfp.jpg" alt="Ted Chait" style={aboutImageStyles} width="400" height="533" />
         <div style={textColumn}>
           <p>
-            Hi, I'm Ted Chait, a <span style={bioHighlight}>Full Stack Software Engineer</span> passionate about creating clean enterprise level solutions. My journey began at <span style={bioHighlight}>Cleveland State University</span>, where I earned my <span style={bioHighlight}>Bachelor's in Computer Science</span>.
+            Hi, I&apos;m Ted Chait, a <span style={bioHighlight}>Full Stack Software Engineer</span> passionate about creating clean enterprise level solutions. My journey began at <span style={bioHighlight}>Cleveland State University</span>, where I earned my <span style={bioHighlight}>Bachelor&apos;s in Computer Science</span>.
           </p>
           <p>
-            Currently, I'm working at <span style={bioHighlight}>MRI Software</span> where I'm modernizing a Windows database maintenance tool, bringing functionality to the web using <span style={bioHighlight}>Angular</span>, <span style={bioHighlight}>TypeScript</span>, <span style={bioHighlight}>.NET</span>, <span style={bioHighlight}>C#</span>, and <span style={bioHighlight}>SQL Server</span>.
+            Currently, I&apos;m working at <span style={bioHighlight}>MRI Software</span> where I&apos;m modernizing a Windows database maintenance tool, bringing functionality to the web using <span style={bioHighlight}>Angular</span>, <span style={bioHighlight}>TypeScript</span>, <span style={bioHighlight}>.NET</span>, <span style={bioHighlight}>C#</span>, and <span style={bioHighlight}>SQL Server</span>.
           </p>
           <p>
-            I'm proficient in both frontend technologies like <span style={bioHighlight}>Angular</span>, <span style={bioHighlight}>TypeScript</span>, <span style={bioHighlight}>JavaScript</span>, and <span style={bioHighlight}>HTML/CSS</span>, as well as backend technologies such as <span style={bioHighlight}>C#</span>, <span style={bioHighlight}>.NET</span>, and <span style={bioHighlight}>SQL</span>. I work with a variety of tools including <span style={bioHighlight}>Visual Studio</span>, <span style={bioHighlight}>VSCode</span>, <span style={bioHighlight}>Git</span>, <span style={bioHighlight}>Azure</span>, and <span style={bioHighlight}>Jira</span>.
+            I&apos;m proficient in both frontend technologies like <span style={bioHighlight}>Angular</span>, <span style={bioHighlight}>TypeScript</span>, <span style={bioHighlight}>JavaScript</span>, and <span style={bioHighlight}>HTML/CSS</span>, as well as backend technologies such as <span style={bioHighlight}>C#</span>, <span style={bioHighlight}>.NET</span>, and <span style={bioHighlight}>SQL</span>. I work with a variety of tools including <span style={bioHighlight}>Visual Studio</span>, <span style={bioHighlight}>VSCode</span>, <span style={bioHighlight}>Git</span>, <span style={bioHighlight}>Azure</span>, and <span style={bioHighlight}>Jira</span>.
           </p>
           <p>
-            I'm passionate about creating clean, accessible, and efficient software solutions and am always eager to learn new technologies and approaches to improve my craft.
+            I&apos;m passionate about creating clean, accessible, and efficient software solutions and am always eager to learn new technologies and approaches to improve my craft.
           </p>
         </div>
       </div>

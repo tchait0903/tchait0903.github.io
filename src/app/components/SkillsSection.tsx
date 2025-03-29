@@ -82,9 +82,8 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
-interface SkillsSectionProps {}
 
-const SkillsSection: React.FC<SkillsSectionProps> = () => {
+const SkillsSection: React.FC = () => {
   const [skillsRef, isSkillsVisible] = useIntersectionObserver();
 
   return (

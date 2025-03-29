@@ -61,17 +61,8 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
-const listItemStyles: React.CSSProperties = {
-  marginBottom: "8px",
-  paddingLeft: "24px",
-  position: "relative",
-  lineHeight: "1.4",
-  color: "#B4B4B4",
-};
 
-interface EducationSectionProps {}
-
-const EducationSection: React.FC<EducationSectionProps> = () => {
+const EducationSection: React.FC = () => {
   const [educationRef, isEducationVisible] = useIntersectionObserver();
 
   return (
@@ -84,7 +75,7 @@ const EducationSection: React.FC<EducationSectionProps> = () => {
           <p style={details}>Aug 2020 - May 2023</p>
           <p style={awardsTitle}>Awards & Societies:</p>
           <p style={details}>
-            3x President's Award, 3x Choose Ohio First + STEM Fellows Member, 2x National Society of Leadership and Success
+            3x President&apos;s Award, 3x Choose Ohio First + STEM Fellows Member, 2x National Society of Leadership and Success
           </p>
         </div>
       </div>

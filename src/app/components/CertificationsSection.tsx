@@ -77,9 +77,7 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
-interface CertificationsSectionProps {}
-
-const CertificationsSection: React.FC<CertificationsSectionProps> = () => {
+const CertificationsSection: React.FC = () => {
   const [certRef, isCertVisible] = useIntersectionObserver();
 
   return (

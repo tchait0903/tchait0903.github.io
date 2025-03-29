@@ -70,9 +70,7 @@ const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
   transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
 });
 
-interface ExperienceSectionProps {}
-
-const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
+const ExperienceSection: React.FC = () => {
   const [experienceRef, isExperienceVisible] = useIntersectionObserver();
 
   return (
@@ -150,7 +148,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
         </div>
 
         <div style={timelineItem}>
-          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Maintenance and Enhancement of GCP's ExploreIT.info</h3>
+          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Maintenance and Enhancement of GCP&apos;s ExploreIT.info</h3>
           <p style={{ color: "#CCCCCC", marginBottom: "24px" }}>Cleveland State University • Cleveland, OH • Fall 2022 - Spring 2023</p>
           <ul style={listStyles}>
             <li style={listItemStyles}>
