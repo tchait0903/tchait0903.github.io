@@ -4,7 +4,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
-  padding: "80px 24px",
+  padding: "40px 24px",
   background: "#ffffff",
   margin: 0,
 };
@@ -51,6 +51,7 @@ const projectImage: React.CSSProperties = {
 
 const projectContent: React.CSSProperties = {
   padding: "24px",
+  paddingTop: "0px",
 };
 
 const projectTitle: React.CSSProperties = {

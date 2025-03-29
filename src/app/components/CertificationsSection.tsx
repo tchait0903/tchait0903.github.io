@@ -4,7 +4,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
-  padding: "80px 24px",
+  padding: "40px 24px 60px 24px",
   background: "#18171C",
   color: "#ffffff",
   margin: 0,
@@ -32,6 +32,7 @@ const certificationGrid: React.CSSProperties = {
 
 const certCard: React.CSSProperties = {
   padding: "24px",
+  paddingTop: "0px",
   borderRadius: "16px",
   boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
   border: "1px solid rgba(255, 255, 255, 0.1)",

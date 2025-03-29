@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
-  padding: "80px 24px",
+  padding: "40px 24px",
   background: "#232129",
   color: "#ffffff",
   margin: 0,

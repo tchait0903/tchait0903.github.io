@@ -4,7 +4,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
-  padding: "80px 24px",
+  padding: "40px 24px 60px 24px",
   background: "#18171C",
   color: "#ffffff",
   margin: 0,
@@ -26,6 +26,7 @@ const experienceTimeline: React.CSSProperties = {
 
 const timelineItem: React.CSSProperties = {
   padding: "24px",
+  paddingTop: "8px",
   background: "#232129",
   borderRadius: "16px",
   marginBottom: "32px",
@@ -147,7 +148,7 @@ const ExperienceSection: React.FC = () => {
           </ul>
         </div>
 
-        <div style={timelineItem}>
+        <div style={{ ...timelineItem, marginBottom: "0px" }}>
           <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Maintenance and Enhancement of GCP&apos;s ExploreIT.info</h3>
           <p style={{ color: "#CCCCCC", marginBottom: "24px" }}>Cleveland State University • Cleveland, OH • Fall 2022 - Spring 2023</p>
           <ul style={listStyles}>

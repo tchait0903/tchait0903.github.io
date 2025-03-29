@@ -4,7 +4,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
-  padding: "80px 24px",
+  padding: "40px 24px 60px 24px",
   background: "#232129",
   color: "#ffffff",
   margin: 0,
@@ -24,9 +24,9 @@ const educationContainer: React.CSSProperties = {
 
 const educationCard: React.CSSProperties = {
   padding: "24px",
+  paddingTop: "0px",
   background: "#2d2b35",
   borderRadius: "16px",
-  marginBottom: "32px",
   boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
   border: "1px solid rgba(255, 255, 255, 0.1)",
 };

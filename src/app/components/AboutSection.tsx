@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const sectionStyles: React.CSSProperties = {
-  padding: "80px 24px",
+  padding: "40px 24px",
   background: "#18171C",
   color: "#ffffff",
   margin: 0,
