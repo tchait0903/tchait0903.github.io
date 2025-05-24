@@ -89,12 +89,15 @@ const inputField: React.CSSProperties = {
   fontSize: "1rem",
   width: "100%",
   transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+  outline: "none",
+  boxSizing: "border-box",
 };
 
 const textareaField: React.CSSProperties = {
   ...inputField,
   minHeight: "150px",
   resize: "vertical",
+  fontFamily: "inherit", // Ensure font matches input
 };
 
 const submitButton: React.CSSProperties = {
@@ -279,6 +282,14 @@ const ContactSection: React.FC = () => {
               onChange={handleChange}
               style={inputField}
               required
+              onFocus={e => {
+                e.currentTarget.style.borderColor = '#00B5B5';
+                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(0,181,181,0.3)';
+              }}
+              onBlur={e => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             />
           </div>
           <div style={inputGroup}>
@@ -291,6 +302,14 @@ const ContactSection: React.FC = () => {
               onChange={handleChange}
               style={inputField}
               required
+              onFocus={e => {
+                e.currentTarget.style.borderColor = '#00B5B5';
+                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(0,181,181,0.3)';
+              }}
+              onBlur={e => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             />
           </div>
           <div style={inputGroup}>
@@ -302,6 +321,14 @@ const ContactSection: React.FC = () => {
               onChange={handleChange}
               style={textareaField}
               required
+              onFocus={e => {
+                e.currentTarget.style.borderColor = '#00B5B5';
+                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(0,181,181,0.3)';
+              }}
+              onBlur={e => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             />
           </div>
           <button 
@@ -335,4 +362,4 @@ const ContactSection: React.FC = () => {
   );
 };
 
-export default ContactSection; 
+export default ContactSection;

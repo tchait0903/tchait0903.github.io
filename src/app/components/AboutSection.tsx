@@ -40,6 +40,7 @@ const bioHighlight: React.CSSProperties = {
 const aboutImageStyles: React.CSSProperties = {
   width: "100%",
   maxWidth: "400px",
+  height: "auto", // Ensure aspect ratio is preserved
   borderRadius: "16px",
   boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
   alignSelf: "center",
@@ -79,4 +80,4 @@ const AboutSection: React.FC = () => {
   );
 };
 
-export default AboutSection; 
+export default AboutSection;
