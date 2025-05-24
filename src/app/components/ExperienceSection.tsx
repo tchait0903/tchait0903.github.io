@@ -149,7 +149,7 @@ const ExperienceSection: React.FC = () => {
         </div>
 
         <div style={{ ...timelineItem, marginBottom: "0px" }}>
-          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Maintenance and Enhancement of GCP&apos;s ExploreIT.info</h3>
+          <h3 style={{ color: "#00B5B5", marginBottom: "8px" }}>Maintenance and Enhancement of GCP&apos;s IT Search Engine</h3>
           <p style={{ color: "#CCCCCC", marginBottom: "24px" }}>Cleveland State University • Cleveland, OH • Fall 2022 - Spring 2023</p>
           <ul style={listStyles}>
             <li style={listItemStyles}>
