@@ -7,6 +7,16 @@ import nextPlugin from "@next/eslint-plugin-next";
 import reactHooks from "eslint-plugin-react-hooks";
 
 export default defineConfig([
+  {
+    ignores: [
+      ".next/**",
+      "out/**", 
+      "node_modules/**",
+      ".vercel/**",
+      "*.config.js",
+      "next-env.d.ts"
+    ]
+  },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], languageOptions: { globals: globals.browser } },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], plugins: { "@eslint/js": js }, rules: js.configs.recommended.rules },
