@@ -118,22 +118,42 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, /*image,*
   return (
     <div 
       style={projectCard}
-      onMouseOver={(e) => {
-        const target = e.currentTarget as HTMLDivElement;
+      onFocus={(e) => {
+        const target = e.currentTarget;
         target.style.transform = "translateY(-8px)";
         target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.15)";
         
-        const imgElement = target.querySelector('img') as HTMLImageElement;
+        const imgElement = target.querySelector('img');
         if (imgElement) {
           imgElement.style.transform = "scale(1.05)";
         }
       }}
-      onMouseOut={(e) => {
-        const target = e.currentTarget as HTMLDivElement;
+      onMouseOver={(e) => {
+        const target = e.currentTarget;
+        target.style.transform = "translateY(-8px)";
+        target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.15)";
+        
+        const imgElement = target.querySelector('img');
+        if (imgElement) {
+          imgElement.style.transform = "scale(1.05)";
+        }
+      }}
+      onBlur={(e) => {
+        const target = e.currentTarget;
         target.style.transform = "translateY(0)";
         target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.1)";
         
-        const imgElement = target.querySelector('img') as HTMLImageElement;
+        const imgElement = target.querySelector('img');
+        if (imgElement) {
+          imgElement.style.transform = "scale(1)";
+        }
+      }}
+      onMouseOut={(e) => {
+        const target = e.currentTarget;
+        target.style.transform = "translateY(0)";
+        target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.1)";
+        
+        const imgElement = target.querySelector('img');
         if (imgElement) {
           imgElement.style.transform = "scale(1)";
         }

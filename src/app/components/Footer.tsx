@@ -45,12 +45,20 @@ const Footer: React.FC = () => {
             href="#home" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >
@@ -60,12 +68,20 @@ const Footer: React.FC = () => {
             href="#about" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >
@@ -75,12 +91,20 @@ const Footer: React.FC = () => {
             href="#skills" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >
@@ -90,12 +114,20 @@ const Footer: React.FC = () => {
             href="#experience" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >
@@ -105,12 +137,20 @@ const Footer: React.FC = () => {
             href="#education" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >
@@ -120,12 +160,20 @@ const Footer: React.FC = () => {
             href="#certifications" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >
@@ -135,12 +183,20 @@ const Footer: React.FC = () => {
             href="#contact" 
             style={footerLinkStyles}
             onClick={scrollToSection}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.color = "#00B5B5";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#00B5B5";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.color = "#E0E0E0";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.color = "#E0E0E0";
             }}
           >

@@ -123,13 +123,23 @@ const HeroSection: React.FC = () => {
             rel="noopener noreferrer"
             style={ctaButtonStyles}
             title="Connect with me on LinkedIn"
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.transform = 'translateY(-3px)';
               target.style.boxShadow = '0 8px 30px rgba(0, 181, 181, 0.7)';
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = 'translateY(-3px)';
+              target.style.boxShadow = '0 8px 30px rgba(0, 181, 181, 0.7)';
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = 'translateY(0)';
+              target.style.boxShadow = '0 4px 20px rgba(0, 181, 181, 0.5)';
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.transform = 'translateY(0)';
               target.style.boxShadow = '0 4px 20px rgba(0, 181, 181, 0.5)';
             }}
@@ -145,13 +155,23 @@ const HeroSection: React.FC = () => {
             rel="noopener noreferrer"
             style={ctaButtonStyles}
             title="Check out my GitHub projects"
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.transform = 'translateY(-3px)';
               target.style.boxShadow = '0 8px 30px rgba(0, 181, 181, 0.7)';
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = 'translateY(-3px)';
+              target.style.boxShadow = '0 8px 30px rgba(0, 181, 181, 0.7)';
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = 'translateY(0)';
+              target.style.boxShadow = '0 4px 20px rgba(0, 181, 181, 0.5)';
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.transform = 'translateY(0)';
               target.style.boxShadow = '0 4px 20px rgba(0, 181, 181, 0.5)';
             }}
@@ -167,13 +187,23 @@ const HeroSection: React.FC = () => {
             rel="noopener noreferrer"
             style={ctaButtonStyles}
             title="Download my Resume"
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.transform = 'translateY(-3px)';
               target.style.boxShadow = '0 8px 30px rgba(0, 181, 181, 0.7)';
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = 'translateY(-3px)';
+              target.style.boxShadow = '0 8px 30px rgba(0, 181, 181, 0.7)';
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = 'translateY(0)';
+              target.style.boxShadow = '0 4px 20px rgba(0, 181, 181, 0.5)';
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.transform = 'translateY(0)';
               target.style.boxShadow = '0 4px 20px rgba(0, 181, 181, 0.5)';
             }}
@@ -187,13 +217,29 @@ const HeroSection: React.FC = () => {
       </div>
       <div
         style={scrollIndicatorStyles}
+        role="button"
+        tabIndex={0}
         onClick={handleScrollClick}
-        onMouseOver={(e) => {
-          const target = e.currentTarget as HTMLDivElement;
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleScrollClick();
+          }
+        }}
+        onFocus={(e) => {
+          const target = e.currentTarget;
           target.style.opacity = '1';
         }}
+        onMouseOver={(e) => {
+          const target = e.currentTarget;
+          target.style.opacity = '1';
+        }}
+        onBlur={(e) => {
+          const target = e.currentTarget;
+          target.style.opacity = '0.7';
+        }}
         onMouseOut={(e) => {
-          const target = e.currentTarget as HTMLDivElement;
+          const target = e.currentTarget;
           target.style.opacity = '0.7';
         }}
       >

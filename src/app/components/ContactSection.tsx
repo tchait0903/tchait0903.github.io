@@ -159,7 +159,7 @@ const ContactSection: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
 
@@ -172,7 +172,7 @@ const ContactSection: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const data = (await response.json()) as { success: boolean };
 
       if (data.success) {
         setFormStatus('success');
@@ -212,13 +212,23 @@ const ContactSection: React.FC = () => {
             rel="noopener noreferrer"
             style={socialIcon}
             title="LinkedIn"
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.background = "rgba(255, 255, 255, 0.2)";
               target.style.transform = "translateY(-3px)";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.background = "rgba(255, 255, 255, 0.2)";
+              target.style.transform = "translateY(-3px)";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.background = "rgba(255, 255, 255, 0.1)";
+              target.style.transform = "translateY(0)";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.background = "rgba(255, 255, 255, 0.1)";
               target.style.transform = "translateY(0)";
             }}
@@ -233,13 +243,23 @@ const ContactSection: React.FC = () => {
             rel="noopener noreferrer"
             style={socialIcon}
             title="GitHub"
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.background = "rgba(255, 255, 255, 0.2)";
               target.style.transform = "translateY(-3px)";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.background = "rgba(255, 255, 255, 0.2)";
+              target.style.transform = "translateY(-3px)";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.background = "rgba(255, 255, 255, 0.1)";
+              target.style.transform = "translateY(0)";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.background = "rgba(255, 255, 255, 0.1)";
               target.style.transform = "translateY(0)";
             }}
@@ -254,13 +274,23 @@ const ContactSection: React.FC = () => {
             rel="noopener noreferrer"
             style={socialIcon}
             title="Resume"
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.background = "rgba(255, 255, 255, 0.2)";
               target.style.transform = "translateY(-3px)";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.background = "rgba(255, 255, 255, 0.2)";
+              target.style.transform = "translateY(-3px)";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.background = "rgba(255, 255, 255, 0.1)";
+              target.style.transform = "translateY(0)";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLAnchorElement;
+              const target = e.currentTarget;
               target.style.background = "rgba(255, 255, 255, 0.1)";
               target.style.transform = "translateY(0)";
             }}
@@ -271,7 +301,7 @@ const ContactSection: React.FC = () => {
           </a>
         </div>
 
-        <form style={formStyles} onSubmit={handleSubmit}>
+        <form style={formStyles} onSubmit={(e) => { void handleSubmit(e); }}>
           <div style={inputGroup}>
             <label htmlFor="name" style={inputLabel}>Name</label>
             <input
@@ -335,12 +365,20 @@ const ContactSection: React.FC = () => {
             type="submit" 
             style={submitButton}
             disabled={formStatus === 'submitting'}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLButtonElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.boxShadow = '0 0 30px rgba(0, 181, 181, 0.7)';
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.boxShadow = '0 0 30px rgba(0, 181, 181, 0.7)';
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.boxShadow = '0 0 20px rgba(0, 181, 181, 0.5)';
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLButtonElement;
+              const target = e.currentTarget;
               target.style.boxShadow = '0 0 20px rgba(0, 181, 181, 0.5)';
             }}
           >

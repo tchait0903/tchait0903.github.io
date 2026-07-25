@@ -88,13 +88,23 @@ const CertificationsSection: React.FC = () => {
         <div style={certificationGrid}>
           <div 
             style={certCard}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.transform = "translateY(-8px)";
               target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = "translateY(-8px)";
+              target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = "translateY(0)";
+              target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
+              const target = e.currentTarget;
               target.style.transform = "translateY(0)";
               target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
             }}
@@ -118,13 +128,23 @@ const CertificationsSection: React.FC = () => {
 
           <div 
             style={certCard}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
+            onFocus={(e) => {
+              const target = e.currentTarget;
               target.style.transform = "translateY(-8px)";
               target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
             }}
+            onMouseOver={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = "translateY(-8px)";
+              target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
+            }}
+            onBlur={(e) => {
+              const target = e.currentTarget;
+              target.style.transform = "translateY(0)";
+              target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
+            }}
             onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
+              const target = e.currentTarget;
               target.style.transform = "translateY(0)";
               target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
             }}
