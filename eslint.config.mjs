@@ -17,7 +17,8 @@ export default defineConfig([
       ".vercel/**",
       "*.config.js",
       "next-env.d.ts",
-      "eslint.config.mjs"
+      "eslint.config.mjs",
+      "*.config.mjs"
     ]
   },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
