@@ -7,6 +7,8 @@ vi.mock('framer-motion', () => ({
   motion: {
     section: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => <section {...props}>{children}</section>,
     div: ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) => <div {...props}>{children}</div>,
+    button: ({ children, whileHover: _wh, whileTap: _wt, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { whileHover?: unknown; whileTap?: unknown }) => <button {...props}>{children}</button>,
+    a: ({ children, whileHover: _wh, whileTap: _wt, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { whileHover?: unknown; whileTap?: unknown }) => <a {...props}>{children}</a>,
   },
   AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
@@ -105,7 +107,7 @@ describe('ContactSection', () => {
 
   it('renders LinkedIn link', () => {
     const linkedinLink = screen.getByRole('link', { name: /linkedin/i });
-    expect(linkedinLink).toHaveAttribute('href', 'https://linkedin.com/in/tchait');
+    expect(linkedinLink).toHaveAttribute('href', 'https://www.linkedin.com/in/tchait/');
   });
 
   it('renders GitHub link', () => {

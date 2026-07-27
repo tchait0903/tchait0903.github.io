@@ -27,7 +27,7 @@ const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="py-10 px-6 bg-[#232129] text-white m-0">
+    <section id="skills" className="pt-12 pb-16 px-6 bg-[#232129] text-white m-0">
       <motion.div 
         className="max-w-6xl mx-auto"
         variants={containerVariants}
@@ -43,13 +43,13 @@ const SkillsSection: React.FC = () => {
           {/* Frontend Card */}
           <motion.div 
             variants={itemVariants}
-            className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-all duration-300"
+            className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-sm hover:shadow-sm hover:-translate-y-2 transition-all duration-300"
           >
             <h3 className="text-xl font-bold mb-4 text-[#00B5B5]">Frontend</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {frontendSkills.map((skill, index) => (
-                <li key={index} className="relative pl-6 text-[#E0E0E0] text-sm leading-relaxed">
-                  <div className="absolute left-0 top-[0.6em] w-2 h-2 rounded-full bg-[#00B5B5]" />
+                <li key={index} className="relative pl-6 text-[#E0E0E0] text-[0.9rem] leading-relaxed">
+                  <div className="absolute left-0 top-[0.55em] w-2 h-2 rounded-full bg-[#00B5B5]" />
                   {skill}
                 </li>
               ))}
@@ -59,13 +59,13 @@ const SkillsSection: React.FC = () => {
           {/* Backend Card */}
           <motion.div 
             variants={itemVariants}
-            className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-all duration-300"
+            className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-sm hover:shadow-sm hover:-translate-y-2 transition-all duration-300"
           >
             <h3 className="text-xl font-bold mb-4 text-[#00B5B5]">Backend</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {backendSkills.map((skill, index) => (
-                <li key={index} className="relative pl-6 text-[#E0E0E0] text-sm leading-relaxed">
-                  <div className="absolute left-0 top-[0.6em] w-2 h-2 rounded-full bg-[#00B5B5]" />
+                <li key={index} className="relative pl-6 text-[#E0E0E0] text-[0.9rem] leading-relaxed">
+                  <div className="absolute left-0 top-[0.55em] w-2 h-2 rounded-full bg-[#00B5B5]" />
                   {skill}
                 </li>
               ))}

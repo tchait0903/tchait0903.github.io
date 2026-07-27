@@ -18,6 +18,7 @@ const CertificationsSection: React.FC = () => {
   const [certRef, isVisible] = useIntersectionObserver();
 
   const certifications = [
+    { title: 'Amazon Web Services', items: ['Cloud Practitioner (CLF-C02)'] },
     {
       title: 'Microsoft Azure',
       items: ['Azure Fundamentals (AZ900)', 'Data Fundamentals (DP900)', 'AI Fundamentals (AI900)'],
@@ -36,23 +37,23 @@ const CertificationsSection: React.FC = () => {
       initial="hidden"
       animate={isVisible ? 'visible' : 'hidden'}
       variants={sectionVariants}
-      className="py-10 px-6 bg-[#18171C] text-white"
+      className="pt-12 pb-16 px-6 bg-[#18171C] text-white"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Certifications</h2>
-      <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-2">
+      <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-3">
         {certifications.map((cat, idx) => (
           <motion.div
             key={idx}
             custom={idx + 1}
             variants={sectionVariants}
-            className="bg-[#2d2b35] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-all duration-300"
+            className="bg-[#2d2b35] border border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-sm hover:-translate-y-2 transition-all duration-300"
           >
             <h3 className="text-xl font-bold text-[#00B5B5] mb-4">{cat.title}</h3>
             <ul className="list-none space-y-2">
               {cat.items.map((item, i) => (
                 <li key={i} className="relative pl-6 text-[#E0E0E0] leading-relaxed">
                   <span className="absolute left-0 top-[0.6em] w-2 h-2 rounded-full bg-[#00B5B5]" />
-                  <span className="text-[#E0E0E0] text-sm leading-relaxed">{item}</span>
+                  <span className="text-[#E0E0E0] text-base leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>

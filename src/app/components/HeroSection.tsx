@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
   const handleScrollClick = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ top: aboutSection.offsetTop - 80, behavior: 'smooth' });
     }
   };
 
@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-[#18171C] to-[#232129] text-white text-center px-6 overflow-hidden"
+      className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-center items-center bg-gradient-to-br from-[#18171C] to-[#232129] text-white text-center px-6 overflow-hidden"
     >
       <motion.div 
         className="z-10 w-full max-w-4xl"
@@ -75,7 +75,6 @@ const HeroSection: React.FC = () => {
             href="https://www.linkedin.com/in/tchait/"
             target="_blank"
             rel="noopener noreferrer"
-            title="Connect with me on LinkedIn"
             className="inline-flex items-center gap-2 bg-[#00B5B5] text-white px-6 py-3 rounded-full font-bold shadow-[0_4px_20px_rgba(0,181,181,0.5)] hover:shadow-[0_8px_30px_rgba(0,181,181,0.7)] hover:-translate-y-1 focus:shadow-[0_8px_30px_rgba(0,181,181,0.7)] focus:-translate-y-1 transition-all duration-300 outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#232129]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -91,7 +90,6 @@ const HeroSection: React.FC = () => {
             href="https://github.com/tchait0903"
             target="_blank"
             rel="noopener noreferrer"
-            title="Check out my GitHub projects"
             className="inline-flex items-center gap-2 bg-[#00B5B5] text-white px-6 py-3 rounded-full font-bold shadow-[0_4px_20px_rgba(0,181,181,0.5)] hover:shadow-[0_8px_30px_rgba(0,181,181,0.7)] hover:-translate-y-1 focus:shadow-[0_8px_30px_rgba(0,181,181,0.7)] focus:-translate-y-1 transition-all duration-300 outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#232129]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -107,7 +105,6 @@ const HeroSection: React.FC = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            title="Download my Resume"
             className="inline-flex items-center gap-2 bg-[#00B5B5] text-white px-6 py-3 rounded-full font-bold shadow-[0_4px_20px_rgba(0,181,181,0.5)] hover:shadow-[0_8px_30px_rgba(0,181,181,0.7)] hover:-translate-y-1 focus:shadow-[0_8px_30px_rgba(0,181,181,0.7)] focus:-translate-y-1 transition-all duration-300 outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#232129]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -137,11 +134,12 @@ const HeroSection: React.FC = () => {
         transition={{ delay: 1, duration: 1 }}
       >
         <span className="text-sm mb-2 text-white font-medium">Scroll Down</span>
-        <motion.div 
-          className="w-5 h-5 border-r-2 border-b-2 border-white rotate-45"
+        <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        />
+        >
+          <div className="w-5 h-5 border-r-2 border-b-2 border-white rotate-45" />
+        </motion.div>
       </motion.div>
     </section>
   );

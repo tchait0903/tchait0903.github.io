@@ -16,7 +16,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, techStack, liveLink, repoLink }) => (
   <motion.div
-    className="rounded-xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full"
+    className="rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-sm transition-shadow flex flex-col h-full"
     whileHover={{ y: -8 }}
     transition={{ duration: 0.3 }}
   >
@@ -108,7 +108,7 @@ const ProjectsSection: React.FC = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-16 px-6 bg-gray-50 min-h-screen"
+      className="pt-12 pb-16 px-6 bg-gray-50 min-h-screen"
     >
       <motion.h2
         custom={0}

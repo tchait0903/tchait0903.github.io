@@ -10,7 +10,7 @@ export const useScrollNavigation = () => {
     if (!targetElement) return;
 
     window.scrollTo({
-      top: targetElement.offsetTop,
+      top: targetElement.offsetTop - 80,
       behavior: 'smooth'
     });
   }, []);

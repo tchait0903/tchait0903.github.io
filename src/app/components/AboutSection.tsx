@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-16 px-6 bg-[#18171C] text-white m-0 overflow-hidden">
+    <section id="about" className="pt-16 pb-20 px-6 bg-[#18171C] text-white m-0 overflow-hidden">
       <motion.div 
         className="max-w-5xl mx-auto flex flex-col gap-12"
         variants={containerVariants}
@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
             <Image 
               src="/images/irlpfp.jpg" 
               alt="Ted Chait" 
-              className="w-full h-auto rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] object-cover" 
+              className="w-full h-auto rounded-2xl shadow-sm object-cover" 
               width={400} 
               height={533} 
               priority

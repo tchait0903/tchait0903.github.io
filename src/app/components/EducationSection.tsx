@@ -28,7 +28,7 @@ const EducationSection: React.FC = () => {
       initial="hidden"
       animate={isVisible ? 'visible' : 'hidden'}
       variants={containerVariants}
-      className="py-10 px-6 bg-[#232129] text-white"
+      className="pt-12 pb-16 px-6 bg-[#232129] text-white"
     >
       <motion.h2
         variants={itemVariants}
@@ -40,7 +40,7 @@ const EducationSection: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <motion.div
           variants={itemVariants}
-          className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300"
+          className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-sm hover:shadow-sm hover:-translate-y-1 transition-all duration-300"
         >
           <h3 className="text-xl font-bold text-[#00B5B5] mb-1">
             Cleveland State University

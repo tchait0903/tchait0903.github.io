@@ -54,7 +54,7 @@ const ContactSection: React.FC = () => {
       initial="hidden"
       animate={isContactVisible ? 'visible' : 'hidden'}
       variants={sectionVariants}
-      className="py-10 px-6 bg-[#232129] text-white"
+      className="pt-12 pb-16 px-6 bg-[#232129] text-white"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Get In Touch</h2>
       <div className="max-w-3xl mx-auto flex flex-col gap-8">
@@ -98,7 +98,7 @@ const ContactSection: React.FC = () => {
         {/* Social Links */}
         <div className="flex gap-4 justify-center mb-2">
           <a
-            href="https://linkedin.com/in/tchait"
+            href="https://www.linkedin.com/in/tchait/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 hover:-translate-y-1 transition flex items-center justify-center"
@@ -159,9 +159,9 @@ const ContactSection: React.FC = () => {
           </a>
         </div>
         {/* Contact Form */}
-        <form className="flex flex-col gap-4" onSubmit={(e) => { void handleSubmit(e); }} noValidate>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-base">Name</label>
+        <form className="flex flex-col gap-4" onSubmit={(e) => { void handleSubmit(e); }}>
+          <div className="relative">
+            <label htmlFor="name" className="text-base block mb-2">Name</label>
             <input
               type="text"
               id="name"
@@ -169,11 +169,12 @@ const ContactSection: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="p-3 rounded-lg border border-white/20 bg-gray-800 text-white w-full focus:border-teal-400 focus:ring-2 focus:ring-teal-400 outline-none transition"
+              autoComplete="name"
+              className="p-3 rounded-lg border border-white/20 bg-[#2d2b35] text-white w-full focus:border-[#00B5B5] focus:shadow-[0_0_8px_rgba(0,181,181,0.5)] hover:border-[#00B5B5] hover:shadow-[0_0_8px_rgba(0,181,181,0.5)] outline-none transition"
             />
           </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-base">Email</label>
+          <div className="relative">
+            <label htmlFor="email" className="text-base block mb-2">Email</label>
             <input
               type="email"
               id="email"
@@ -181,27 +182,30 @@ const ContactSection: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="p-3 rounded-lg border border-white/20 bg-gray-800 text-white w-full focus:border-teal-400 focus:ring-2 focus:ring-teal-400 outline-none transition"
+              autoComplete="email"
+              className="p-3 rounded-lg border border-white/20 bg-[#2d2b35] text-white w-full focus:border-[#00B5B5] focus:shadow-[0_0_8px_rgba(0,181,181,0.5)] hover:border-[#00B5B5] hover:shadow-[0_0_8px_rgba(0,181,181,0.5)] outline-none transition"
             />
           </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-base">Message</label>
+          <div className="relative">
+            <label htmlFor="message" className="text-base block mb-2">Message</label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
-              className="p-3 rounded-lg border border-white/20 bg-gray-800 text-white w-full min-h-[150px] resize-vertical focus:border-teal-400 focus:ring-2 focus:ring-teal-400 outline-none transition"
+              className="p-3 rounded-lg border border-white/20 bg-[#2d2b35] text-white w-full min-h-[150px] resize-vertical focus:border-[#00B5B5] focus:shadow-[0_0_8px_rgba(0,181,181,0.5)] hover:border-[#00B5B5] hover:shadow-[0_0_8px_rgba(0,181,181,0.5)] outline-none transition"
             />
           </div>
-          <button
+          <motion.button
             type="submit"
             disabled={formStatus === 'submitting'}
-            className="self-center w-fit inline-flex items-center gap-2 bg-teal-500 text-white py-3 px-8 rounded-full font-bold hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow shadow-md hover:shadow-lg disabled:opacity-50"
+            className="self-center my-4 w-fit inline-flex items-center gap-2 bg-[#00B5B5] text-white px-8 py-3 rounded-full font-bold cursor-pointer disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(0,181,181,0.5)] hover:shadow-[0_8px_30px_rgba(0,181,181,0.7)] hover:-translate-y-1 focus:shadow-[0_8px_30px_rgba(0,181,181,0.7)] focus:-translate-y-1 transition-all duration-300 outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#232129] disabled:opacity-50"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
-          </button>
+          </motion.button>
           {formStatus === 'success' && (
             <div className="bg-teal-500/20 text-teal-400 p-4 rounded">
               Thank you for your message! I&apos;ll get back to you soon.
