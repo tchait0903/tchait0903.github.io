@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     title: 'Ted Chait | Software Engineer',
     description:
       'Software Engineer specializing in full-stack development with expertise in .NET, Angular, TypeScript, and React.',
-    creator: '@tchait',
   },
   robots: {
     index: true,
