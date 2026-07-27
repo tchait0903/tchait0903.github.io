@@ -1,86 +1,63 @@
 'use client';
 
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const sectionStyles: React.CSSProperties = {
-  padding: "40px 24px 60px 24px",
-  background: "#232129",
-  color: "#ffffff",
-  margin: 0,
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut', staggerChildren: 0.15 },
+  },
 };
 
-const sectionTitle: React.CSSProperties = {
-  fontSize: "2.5rem",
-  fontWeight: "bold",
-  marginBottom: "48px",
-  textAlign: "center",
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
-
-const educationContainer: React.CSSProperties = {
-  maxWidth: "1200px",
-  margin: "0 auto",
-};
-
-const educationCard: React.CSSProperties = {
-  padding: "24px",
-  paddingTop: "0px",
-  background: "#2d2b35",
-  borderRadius: "16px",
-  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-};
-
-const schoolName: React.CSSProperties = {
-  fontSize: "1.5rem",
-  color: "#00B5B5",
-  marginBottom: "8px",
-};
-
-const degree: React.CSSProperties = {
-  fontSize: "1.2rem",
-  fontWeight: "500",
-  marginBottom: "8px",
-};
-
-const details: React.CSSProperties = {
-  color: "#E0E0E0",
-  marginBottom: "16px",
-};
-
-const awardsTitle: React.CSSProperties = {
-  fontSize: "1.1rem",
-  fontWeight: "500",
-  marginTop: "16px",
-  marginBottom: "8px",
-};
-
-const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
-  opacity: isVisible ? 1 : 0,
-  transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
-  transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
-});
-
 
 const EducationSection: React.FC = () => {
-  const [educationRef, isEducationVisible] = useIntersectionObserver();
+  const [sectionRef, isVisible] = useIntersectionObserver();
 
   return (
-    <section id="education" ref={educationRef} style={{ ...sectionStyles, ...animatedSectionStyles(isEducationVisible) }}>
-      <h2 style={sectionTitle}>Education</h2>
-      <div style={educationContainer}>
-        <div style={educationCard}>
-          <h3 style={schoolName}>Cleveland State University</h3>
-          <p style={degree}>Bachelor of Science, Computer Science</p>
-          <p style={details}>Aug 2020 - May 2023</p>
-          <p style={awardsTitle}>Awards & Societies:</p>
-          <p style={details}>
-            3x President&apos;s Award, 3x Choose Ohio First + STEM Fellows Member, 2x National Society of Leadership and Success
+    <motion.section
+      id="education"
+      ref={sectionRef}
+      initial="hidden"
+      animate={isVisible ? 'visible' : 'hidden'}
+      variants={containerVariants}
+      className="pt-12 pb-16 px-6 bg-[#232129] text-white"
+    >
+      <motion.h2
+        variants={itemVariants}
+        className="text-3xl md:text-4xl font-bold text-center mb-8"
+      >
+        Education
+      </motion.h2>
+
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          variants={itemVariants}
+          className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-sm hover:shadow-sm hover:-translate-y-1 transition-all duration-300"
+        >
+          <h3 className="text-xl font-bold text-[#00B5B5] mb-1">
+            Cleveland State University
+          </h3>
+          <p className="text-sm font-medium mb-1">
+            Bachelor of Science, Computer Science
           </p>
-        </div>
+          <p className="text-[#CCCCCC] text-sm mb-4">Aug 2020 – May 2023</p>
+
+          <p className="font-semibold text-sm mb-2">Awards &amp; Societies:</p>
+          <p className="text-[#E0E0E0] text-sm leading-relaxed">
+            3× President&apos;s Award • 3× Choose Ohio First + STEM Fellows Member • 2× National Society of Leadership and Success
+          </p>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
-export default EducationSection; 
+export default EducationSection;

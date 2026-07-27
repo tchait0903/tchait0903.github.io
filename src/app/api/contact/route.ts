@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message } = (await request.json()) as { name: string; email: string; message: string; };
 
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({

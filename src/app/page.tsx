@@ -8,18 +8,10 @@ import ExperienceSection from './components/ExperienceSection';
 import EducationSection from './components/EducationSection';
 import CertificationsSection from './components/CertificationsSection';
 import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-
-const pageStyles: React.CSSProperties = {
-  color: "#232129",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-  width: "100%",
-  overflow: "hidden",
-};
 
 export default function Home() {
   return (
-    <main style={{ ...pageStyles, margin: 0, padding: 0 }}>
+    <main className="w-full overflow-hidden text-[#232129]">
       <HeroSection />
       <AboutSection />
       <SkillsSection />
@@ -27,7 +19,6 @@ export default function Home() {
       <EducationSection />
       <CertificationsSection />
       <ContactSection />
-      <Footer />
     </main>
   );
-} 
+}

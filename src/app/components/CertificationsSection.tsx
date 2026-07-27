@@ -1,146 +1,67 @@
 'use client';
 
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const sectionStyles: React.CSSProperties = {
-  padding: "40px 24px 60px 24px",
-  background: "#18171C",
-  color: "#ffffff",
-  margin: 0,
+// Animation variants for the section reveal
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (custom: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: custom * 0.1, duration: 0.6, ease: 'easeOut' },
+  }),
 };
-
-const sectionTitle: React.CSSProperties = {
-  fontSize: "2.5rem",
-  fontWeight: "bold",
-  marginBottom: "48px",
-  textAlign: "center",
-};
-
-const certificationsContainer: React.CSSProperties = {
-  maxWidth: "1200px",
-  margin: "0 auto",
-};
-
-const certificationGrid: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 400px))",
-  gap: "32px",
-  justifyContent: "center",
-  padding: "0 16px",
-};
-
-const certCard: React.CSSProperties = {
-  padding: "24px",
-  paddingTop: "0px",
-  borderRadius: "16px",
-  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-  background: "#232129",
-  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-};
-
-const certTitle: React.CSSProperties = {
-  fontSize: "1.5rem",
-  color: "#00B5B5",
-  marginBottom: "16px",
-};
-
-const listStyles: React.CSSProperties = {
-  listStyle: "none",
-  padding: 0,
-  margin: 0,
-};
-
-const listItemStyles: React.CSSProperties = {
-  marginBottom: "8px",
-  paddingLeft: "24px",
-  position: "relative",
-  lineHeight: "1.4",
-  color: "#E0E0E0",
-};
-
-const bulletPointStyles: React.CSSProperties = {
-  content: '""',
-  position: "absolute",
-  left: "0",
-  top: "0.7em",
-  width: "8px",
-  height: "8px",
-  backgroundColor: "#00B5B5",
-  borderRadius: "50%",
-  transform: "translateY(-50%)",
-};
-
-const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
-  opacity: isVisible ? 1 : 0,
-  transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
-  transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
-});
 
 const CertificationsSection: React.FC = () => {
-  const [certRef, isCertVisible] = useIntersectionObserver();
+  const [certRef, isVisible] = useIntersectionObserver();
+
+  const certifications = [
+    { title: 'Amazon Web Services', items: ['Cloud Practitioner (CLF-C02)'] },
+    {
+      title: 'Microsoft Azure',
+      items: ['Azure Fundamentals (AZ900)', 'Data Fundamentals (DP900)', 'AI Fundamentals (AI900)'],
+    },
+    {
+      title: 'Other Certifications',
+      items: ['LambdaTest - Test Automation'],
+    },
+  ];
 
   return (
-    <section id="certifications" ref={certRef} style={{ ...sectionStyles, ...animatedSectionStyles(isCertVisible) }}>
-      <h2 style={sectionTitle}>Certifications</h2>
-      <div style={certificationsContainer}>
-        <div style={certificationGrid}>
-          <div 
-            style={certCard}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(-8px)";
-              target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-            }}
-            onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(0)";
-              target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-            }}
+    <motion.section
+      id="certifications"
+      ref={certRef}
+      custom={0}
+      initial="hidden"
+      animate={isVisible ? 'visible' : 'hidden'}
+      variants={sectionVariants}
+      className="pt-12 pb-16 px-6 bg-[#18171C] text-white"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Certifications</h2>
+      <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-3">
+        {certifications.map((cat, idx) => (
+          <motion.div
+            key={idx}
+            custom={idx + 1}
+            variants={sectionVariants}
+            className="bg-[#2d2b35] border border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-sm hover:-translate-y-2 transition-all duration-300"
           >
-            <h3 style={certTitle}>Microsoft Azure</h3>
-            <ul style={listStyles}>
-              <li style={listItemStyles}>
-                <div style={bulletPointStyles} />
-                Azure Fundamentals (AZ900)
-              </li>
-              <li style={listItemStyles}>
-                <div style={bulletPointStyles} />
-                Data Fundamentals (DP900)
-              </li>
-              <li style={listItemStyles}>
-                <div style={bulletPointStyles} />
-                AI Fundamentals (AI900)
-              </li>
+            <h3 className="text-xl font-bold text-[#00B5B5] mb-4">{cat.title}</h3>
+            <ul className="list-none space-y-2">
+              {cat.items.map((item, i) => (
+                <li key={i} className="relative pl-6 text-[#E0E0E0] leading-relaxed">
+                  <span className="absolute left-0 top-[0.6em] w-2 h-2 rounded-full bg-[#00B5B5]" />
+                  <span className="text-[#E0E0E0] text-base leading-relaxed">{item}</span>
+                </li>
+              ))}
             </ul>
-          </div>
-
-          <div 
-            style={certCard}
-            onMouseOver={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(-8px)";
-              target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-            }}
-            onMouseOut={(e) => {
-              const target = e.currentTarget as HTMLDivElement;
-              target.style.transform = "translateY(0)";
-              target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-            }}
-          >
-            <h3 style={certTitle}>Other Certifications</h3>
-            <ul style={listStyles}>
-              <li style={listItemStyles}>
-                <div style={bulletPointStyles} />
-                LambdaTest - Test Automation
-              </li>
-            </ul>
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
-export default CertificationsSection; 
+export default CertificationsSection;

@@ -1,192 +1,78 @@
 'use client';
 
 import React from 'react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
-const sectionStyles: React.CSSProperties = {
-  padding: "40px 24px 60px 24px",
-  background: "#232129",
-  margin: 0,
-  color: "#ffffff",
-};
-
-const darkSectionStyles: React.CSSProperties = {
-  background: "#232129",
-  color: "#ffffff",
-};
-
-const sectionTitle: React.CSSProperties = {
-  fontSize: "2.5rem",
-  fontWeight: "bold",
-  marginBottom: "48px",
-  textAlign: "center",
-};
-
-const skillsGrid: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 400px))",
-  gap: "32px",
-  maxWidth: "1200px",
-  margin: "0 auto",
-  justifyContent: "center",
-  padding: "0 16px",
-};
-
-const skillCard: React.CSSProperties = {
-  padding: "24px",
-  paddingTop: "0px",
-  borderRadius: "16px",
-  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-  background: "#2d2b35",
-  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-  color: "#E0E0E0",
-};
-
-const skillCardDark: React.CSSProperties = {
-  ...skillCard,
-};
-
-const listStyles: React.CSSProperties = {
-  listStyle: "none",
-  padding: 0,
-  margin: 0,
-};
-
-const listItemStyles: React.CSSProperties = {
-  marginBottom: "8px",
-  paddingLeft: "24px",
-  position: "relative",
-  lineHeight: "1.4",
-};
-
-const bulletPointStyles: React.CSSProperties = {
-  content: '""',
-  position: "absolute",
-  left: "0",
-  top: "0.7em",
-  width: "8px",
-  height: "8px",
-  backgroundColor: "#00B5B5",
-  borderRadius: "50%",
-  transform: "translateY(-50%)",
-};
-
-const bulletPointDarkStyles: React.CSSProperties = {
-  ...bulletPointStyles,
-  backgroundColor: "#00B5B5",
-};
-
-const animatedSectionStyles = (isVisible: boolean): React.CSSProperties => ({
-  opacity: isVisible ? 1 : 0,
-  transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
-  transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
-});
-
+import { motion, Variants } from 'framer-motion';
 
 const SkillsSection: React.FC = () => {
-  const [skillsRef, isSkillsVisible] = useIntersectionObserver();
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut', staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
+  const frontendSkills = [
+    "Angular", "TypeScript", "Node.js", "JavaScript", "HTML/CSS/XML", "SCSS"
+  ];
+
+  const backendSkills = [
+    "C#", ".NET", "SQL", "REST APIs", "Microsoft SQL Server", "SSMS", "Python", "Java", "C"
+  ];
 
   return (
-    <section id="skills" ref={skillsRef} style={{ ...sectionStyles, ...darkSectionStyles, ...animatedSectionStyles(isSkillsVisible) }}>
-      <h2 style={sectionTitle}>Skills</h2>
-      <div style={skillsGrid}>
-        <div 
-          style={skillCardDark}
-          onMouseOver={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(-8px)";
-            target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseOut={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(0)";
-            target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "16px", color: "#00B5B5" }}>Frontend</h3>
-          <ul style={listStyles}>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Angular
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              TypeScript
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Node.js
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              JavaScript
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              HTML/CSS/XML
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              SCSS
-            </li>
-          </ul>
-        </div>
+    <section id="skills" className="pt-12 pb-16 px-6 bg-[#232129] text-white m-0">
+      <motion.div 
+        className="max-w-6xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-center mb-8">
+          Skills
+        </motion.h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* Frontend Card */}
+          <motion.div 
+            variants={itemVariants}
+            className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-sm hover:shadow-sm hover:-translate-y-2 transition-all duration-300"
+          >
+            <h3 className="text-xl font-bold mb-4 text-[#00B5B5]">Frontend</h3>
+            <ul className="space-y-1.5">
+              {frontendSkills.map((skill, index) => (
+                <li key={index} className="relative pl-6 text-[#E0E0E0] text-[0.9rem] leading-relaxed">
+                  <div className="absolute left-0 top-[0.55em] w-2 h-2 rounded-full bg-[#00B5B5]" />
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-        <div 
-          style={skillCardDark}
-          onMouseOver={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(-8px)";
-            target.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseOut={(e) => {
-            const target = e.currentTarget as HTMLDivElement;
-            target.style.transform = "translateY(0)";
-            target.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem", marginBottom: "16px", color: "#00B5B5" }}>Backend</h3>
-          <ul style={listStyles}>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              C#
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              .NET
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              SQL
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              REST APIs
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Microsoft SQL Server
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              SSMS
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Python
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              Java
-            </li>
-            <li style={listItemStyles}>
-              <div style={bulletPointDarkStyles} />
-              C
-            </li>
-          </ul>
+          {/* Backend Card */}
+          <motion.div 
+            variants={itemVariants}
+            className="p-6 rounded-2xl bg-[#2d2b35] border border-white/10 shadow-sm hover:shadow-sm hover:-translate-y-2 transition-all duration-300"
+          >
+            <h3 className="text-xl font-bold mb-4 text-[#00B5B5]">Backend</h3>
+            <ul className="space-y-1.5">
+              {backendSkills.map((skill, index) => (
+                <li key={index} className="relative pl-6 text-[#E0E0E0] text-[0.9rem] leading-relaxed">
+                  <div className="absolute left-0 top-[0.55em] w-2 h-2 rounded-full bg-[#00B5B5]" />
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
