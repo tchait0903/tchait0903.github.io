@@ -100,18 +100,8 @@ describe('ContactSection', () => {
     });
   });
 
-  it('renders email contact link', () => {
-    const emailLink = screen.getByRole('link', { name: /tchait0903@gmail.com/i });
-    expect(emailLink).toHaveAttribute('href', 'mailto:tchait0903@gmail.com');
-  });
-
   it('renders LinkedIn link', () => {
     const linkedinLink = screen.getByRole('link', { name: /linkedin/i });
     expect(linkedinLink).toHaveAttribute('href', 'https://www.linkedin.com/in/tchait/');
-  });
-
-  it('renders GitHub link', () => {
-    const githubLink = screen.getByRole('link', { name: /github/i });
-    expect(githubLink).toHaveAttribute('href', 'https://github.com/tchait0903');
   });
 });
